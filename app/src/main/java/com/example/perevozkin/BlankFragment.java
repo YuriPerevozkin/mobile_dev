@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +18,7 @@ import android.widget.Button;
  */
 public class BlankFragment extends Fragment {
     private Button button;
+    private TextView counter_text;
 
     private int count = 0;
 
@@ -47,17 +49,17 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
         button = view.findViewById(R.id.button);
 
+        counter_text = view.findViewById(R.id.textView3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count += 1;
-                String msg = "count: " + count;
-                Log.d("MY_TAG", msg);
+                String msg = "Баланс: " + count;
+                counter_text.setText(msg);
             }
         });
 

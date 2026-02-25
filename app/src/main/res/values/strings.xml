@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Perevozkin</string>
+    <string name="counter_str">Баланс: 0</string>
+    <string name="vkcoin_str">ВК КОИН</string>
+    <string name="button_str">Тапай</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
