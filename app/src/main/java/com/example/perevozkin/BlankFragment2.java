@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -20,6 +22,10 @@ import android.widget.TextView;
 public class BlankFragment2 extends Fragment {
     private UpdateListener updateListener;
     private FragmentManager fragmentManager;
+
+    private TextView chat;
+    private EditText input;
+    private Button submit_button;
 
     public BlankFragment2() {
         // Required empty public constructor
@@ -44,12 +50,26 @@ public class BlankFragment2 extends Fragment {
     public void onAttach(Context ctx) {
         super.onAttach(ctx);
         updateListener = (UpdateListener) ctx;
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
+
+        chat = view.findViewById(R.id.textViewUpper);
+        input = view.findViewById(R.id.editTextLower);
+        submit_button = view.findViewById(R.id.buttonSubmit);
+
+        submit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chat.setText(chat.getText().toString() + '\n' + input.getText().toString());
+                input.setText("");
+            }
+        });
 
         return view;
     }
